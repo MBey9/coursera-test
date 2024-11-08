@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola coursera</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="app.js"></script>
+</head>
+<body>
+    <div ng-controller="myAppController">
+    <h1>Lunch Checker</h1>
+    <input type="text" id="chkbox" ng-class="checkbox" ng-model="name" placeholder="list comma sparated dishes you usually have for lunch"> NOT consider an empty item, i.e., `, ,`;
+    <div>
+        {{result}} 
+    </div>
+    <div>
+    <button id="btn-1" ng-click="btncheck()">Check if Too Much</button>
+    </div>
+</div>
+</body>
+</html>
