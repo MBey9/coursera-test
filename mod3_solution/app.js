@@ -64,18 +64,28 @@
         var ctrl = this;
         ctrl.searchTerm = "";
         ctrl.found = [];
+        ctrl.noResults = false; 
 
         ctrl.narrowItDown = function() {
             console.log("Buscando:", ctrl.searchTerm);
+            if (ctrl.searchTerm.trim().length === 0) {
+                ctrl.noResults = true;
+                ctrl.found = [];
+            }else {
             MenuSearchService.getMatchedMenuItems(ctrl.searchTerm)
                 .then(function (result) {
                     ctrl.found = result; 
                     console.log(ctrl.found); 
+                    ctrl.noResults = (ctrl.found.length === 0);
                 });
+            }
         };
 
         ctrl.removeItem = function(index) {
             ctrl.found.splice(index, 1);
+            if (ctrl.found.length === 0) {
+                ctrl.noResults = true;  
+            }
         };
         
     }
